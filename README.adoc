@@ -1,0 +1,8 @@
+= Enterprise Java Sample
+Shuai Zhang<zhangshuai.ustc@gmail.com>
+
+This is a sample project with _best practice_ for enterprise Java developing. It's particular because:
+
+. It provide both RESTful API & Grpc API
+. It fits into JavaEE 8 specification without the EJB parts, but not relying on any JavaEE application servers
+
