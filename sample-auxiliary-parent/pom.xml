@@ -16,7 +16,8 @@
   <description>Sample auxiliary projects parent</description>
 
   <modules>
-    <module>sample-pom</module>
+    <module>sample-assembly</module>
     <module>sample-checkstyle</module>
+    <module>sample-pom</module>
   </modules>
 </project>

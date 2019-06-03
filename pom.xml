@@ -127,6 +127,13 @@
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>3.1.1</version>
+          <dependencies>
+            <dependency>
+              <groupId>io.github.hcoona</groupId>
+              <artifactId>sample-assembly</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
