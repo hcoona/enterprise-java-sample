@@ -17,5 +17,6 @@
 
   <modules>
     <module>sample-service-server</module>
+    <module>sample-service-api</module>
   </modules>
 </project>

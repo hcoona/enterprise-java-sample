@@ -12,18 +12,6 @@
   <artifactId>sample-service-server</artifactId>
   <name>Sample Service Server</name>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>io.github.hcoona</groupId>
-        <artifactId>sample-pom</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
     <!-- CDI API -->
     <dependency>

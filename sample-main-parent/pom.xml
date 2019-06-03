@@ -24,6 +24,18 @@
     <version.checkstyle.sevntu>1.33.0</version.checkstyle.sevntu>
   </properties>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.github.hcoona</groupId>
+        <artifactId>sample-pom</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <build>
     <pluginManagement>
       <plugins>

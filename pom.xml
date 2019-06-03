@@ -49,6 +49,15 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- Protocol Buffer -->
+    <version.protobuf>3.8.0</version.protobuf>
+
+    <!-- Grpc -->
+    <version.grpc>1.21.0</version.grpc>
+
+    <!-- Netty, keep aligned with grpc-netty requirement -->
+    <version.netty>4.1.34.Final</version.netty>
   </properties>
 
   <build>
@@ -178,6 +187,11 @@
           <groupId>org.xolstice.maven.plugins</groupId>
           <artifactId>protobuf-maven-plugin</artifactId>
           <version>0.6.1</version>
+          <configuration>
+            <protocArtifact>com.google.protobuf:protoc:${version.protobuf}:exe:${os.detected.classifier}</protocArtifact>
+            <pluginId>grpc-java</pluginId>
+            <pluginArtifact>io.grpc:protoc-gen-grpc-java:${version.grpc}:exe:${os.detected.classifier}</pluginArtifact>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.owasp</groupId>
