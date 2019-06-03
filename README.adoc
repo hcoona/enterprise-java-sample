@@ -14,11 +14,23 @@ This is a sample project with _best practice_ for enterprise Java developing. It
 
 ==== API
 
-==== Client
+==== Grpc Client
 
-==== Server
+==== RESTful Client
+
+==== Grpc-only Server
+
+==== RESTful-only Server
+
+==== Mixed Server
 
 === Client-side projects
+
+==== Grpc-only Agent
+
+==== RESTful-only Agent
+
+==== Mixed Agent
 
 == Auxiliary projects
 
@@ -33,3 +45,4 @@ This is a sample project with _best practice_ for enterprise Java developing. It
 .. PMD
 .. FindBugs
 . Add CI support
+. Add Liquibase
