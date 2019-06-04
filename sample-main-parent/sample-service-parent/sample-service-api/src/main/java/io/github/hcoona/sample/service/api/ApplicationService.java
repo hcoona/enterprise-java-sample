@@ -12,4 +12,7 @@ public interface ApplicationService {
 
   @API(status = API.Status.EXPERIMENTAL)
   Application get(String name);
+
+  @API(status = API.Status.EXPERIMENTAL)
+  Application create(Application application);
 }

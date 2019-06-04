@@ -1,12 +1,11 @@
 package io.github.hcoona.sample.service.server.restful;
 
-import java.net.URL;
-import java.util.Objects;
+import java.io.File;
 import org.eclipse.jetty.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.plus.webapp.EnvConfiguration;
 import org.eclipse.jetty.plus.webapp.PlusConfiguration;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.util.resource.PathResource;
+import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.Configuration;
 import org.eclipse.jetty.webapp.FragmentConfiguration;
 import org.eclipse.jetty.webapp.JettyWebXmlConfiguration;
@@ -14,8 +13,17 @@ import org.eclipse.jetty.webapp.MetaInfConfiguration;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.eclipse.jetty.webapp.WebInfConfiguration;
 import org.eclipse.jetty.webapp.WebXmlConfiguration;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
 public final class App {
+  static {
+    SLF4JBridgeHandler.removeHandlersForRootLogger();
+    SLF4JBridgeHandler.install();
+  }
+
+  private App() {
+  }
+
   /**
    * Sample Service RESTful-only Server Application.
    *
@@ -23,8 +31,9 @@ public final class App {
    * @throws Exception Any exception
    */
   public static void main(String[] args) throws Exception {
-    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-    URL selfResourceUri = Objects.requireNonNull(classLoader.getResource(""));
+    final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    File webAppResourceFile =
+        new File(App.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
 
     WebAppContext webapp = new WebAppContext();
     webapp.setConfigurations(
@@ -40,8 +49,8 @@ public final class App {
         });
     webapp.setContextPath("/");
     webapp.setClassLoader(classLoader);
-    webapp.setResourceBase(selfResourceUri.toExternalForm());
-    webapp.getMetaData().addContainerResource(new PathResource(selfResourceUri));
+    webapp.setResourceBase(webAppResourceFile.getPath());
+    webapp.getMetaData().addContainerResource(Resource.newResource(webAppResourceFile));
 
     Server server = new Server(8080);
     server.setHandler(webapp);

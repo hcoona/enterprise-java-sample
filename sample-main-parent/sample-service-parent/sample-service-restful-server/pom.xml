@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>sample-service-parent</artifactId>
     <groupId>io.github.hcoona</groupId>
@@ -12,7 +12,25 @@
   <artifactId>sample-service-restful-server</artifactId>
   <name>Sample Service RESTful Server</name>
 
+  <properties>
+    <mainClass>io.github.hcoona.sample.service.server.restful.App</mainClass>
+  </properties>
+
   <dependencies>
+    <!-- Internal Project -->
+    <dependency>
+      <groupId>io.github.hcoona</groupId>
+      <artifactId>sample-service-model</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.github.hcoona</groupId>
+      <artifactId>sample-service-api</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
     <!-- Common Utils -->
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -24,6 +42,11 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jul-to-slf4j</artifactId>
       <scope>compile</scope>
     </dependency>
 
@@ -45,6 +68,20 @@
     <dependency>
       <groupId>org.jboss.spec.javax.ws.rs</groupId>
       <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- JPA API -->
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- DeltaSpike API -->
+    <dependency>
+      <groupId>org.apache.deltaspike.modules</groupId>
+      <artifactId>deltaspike-jpa-module-api</artifactId>
       <scope>compile</scope>
     </dependency>
 
@@ -122,5 +159,129 @@
       <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
       <scope>runtime</scope>
     </dependency>
+
+    <!-- JPA Implementation: EclipseLink -->
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>eclipselink</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- Datasource -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- DeltaSpike Implementation -->
+    <dependency>
+      <groupId>org.apache.deltaspike.modules</groupId>
+      <artifactId>deltaspike-jpa-module-impl</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.deltaspike.modules</groupId>
+      <artifactId>deltaspike-data-module-impl</artifactId>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <escapeString>\</escapeString>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>getClasspathFilenames</id>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>getParallelism</id>
+            <goals>
+              <goal>cpu-count</goal>
+            </goals>
+            <configuration>
+              <cpuCount>system.parallelism</cpuCount>
+              <factor>1.5</factor>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>exec</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>${mainClass}</mainClass>
+          <arguments>
+            <argument>-javaagent:${org.eclipse.persistence:eclipselink:jar}</argument>
+            <argument>-Djava.util.concurrent.ForkJoinPool.common.parallelism=${system.parallelism}</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>${mainClass}</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <attach>false</attach>
+              <descriptorRefs>
+                <descriptorRef>dist</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

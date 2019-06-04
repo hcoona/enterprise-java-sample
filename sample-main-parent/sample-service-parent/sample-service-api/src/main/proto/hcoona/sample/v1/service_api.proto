@@ -23,6 +23,13 @@ service ApplicationService {
       get: "/v1/{name=applications/*}"
     };
   }
+
+  rpc CreateApplication (CreateApplicationRequest) returns (Application) {
+    option (google.api.http) = {
+      post: "/v1/applications"
+      body: "application"
+    };
+  }
 }
 
 message ListApplicationsRequest {
@@ -34,6 +41,10 @@ message ListApplicationsResponse {
 
 message GetApplicationRequest {
   string name = 1;
+}
+
+message CreateApplicationRequest {
+  Application application = 1;
 }
 
 /********************************

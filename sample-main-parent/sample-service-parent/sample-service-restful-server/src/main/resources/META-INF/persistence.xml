@@ -1,0 +1,53 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+  <persistence-unit name="io.github.hcoona.sample.service">
+    <description>
+      Persistence unit for Sample Service
+    </description>
+    ${model-classes}
+    <properties>
+      <property name="javax.persistence.jdbc.driver"
+                value="org.h2.Driver"/>
+      <property name="javax.persistence.jdbc.url"
+                value="jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE"/>
+      <property name="javax.persistence.jdbc.user"
+                value="sa"/>
+      <property name="javax.persistence.jdbc.password"
+                value=""/>
+
+      <property name="javax.persistence.schema-generation.database.action"
+                value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.action"
+                value="none"/>
+
+      <property name="eclipselink.logging.logger"
+                value="JavaLogger"/>
+      <property name="eclipse.weaving"
+                value="true"/>
+      <property name="eclipselink.cache.size.default"
+                value="5000"/>
+
+      <property name="eclipselink.connection-pool.initial"
+                value="8"/>
+      <property name="eclipselink.connection-pool.min"
+                value="4"/>
+      <property name="eclipselink.connection-pool.max"
+                value="64"/>
+      <property name="eclipselink.jdbc.allow-native-sql-queries"
+                value="true"/>
+      <property name="eclipselink.jdbc.native-sql"
+                value="true"/>
+      <property name="eclipselink.jdbc.batch-writing"
+                value="jdbc"/>
+      <property name="eclipselink.jdbc.batch-writing.size"
+                value="200"/>
+      <property name="eclipselink.jdbc.cache-statements"
+                value="true"/>
+      <property name="eclipselink.jdbc.cache-statements.size"
+                value="100"/>
+    </properties>
+  </persistence-unit>
+</persistence>

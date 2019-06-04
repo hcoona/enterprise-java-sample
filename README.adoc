@@ -62,3 +62,4 @@ Use link:https://deltaspike.apache.org/[DeltaSpike] to simplify the implementati
 .. FindBugs
 . Add CI support
 . Add Liquibase
+. MicroMeter
