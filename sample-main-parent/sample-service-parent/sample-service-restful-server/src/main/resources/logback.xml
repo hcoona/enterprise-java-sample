@@ -6,10 +6,11 @@
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %X{requestId} - %msg%n</pattern>
     </encoder>
   </appender>
 
+  <logger name="org.eclipse.jetty.webapp.WebXmlConfiguration" level="DEBUG"/>
   <logger name="org.jboss.weld" level="ERROR"/>
 
   <root level="INFO">

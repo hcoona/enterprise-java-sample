@@ -125,6 +125,11 @@
       <artifactId>jetty-annotations</artifactId>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlets</artifactId>
+      <scope>runtime</scope>
+    </dependency>
 
     <!-- JAX-RS Implementation: Jersey -->
     <dependency>

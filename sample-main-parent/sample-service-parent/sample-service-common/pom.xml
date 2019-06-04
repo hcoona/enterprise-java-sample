@@ -27,6 +27,13 @@
       <scope>compile</scope>
     </dependency>
 
+    <!-- Logging API -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
     <!-- Inject API -->
     <dependency>
       <groupId>javax.inject</groupId>
@@ -38,6 +45,13 @@
     <dependency>
       <groupId>javax.enterprise</groupId>
       <artifactId>cdi-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- Servlet API -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.servlet</groupId>
+      <artifactId>jboss-servlet-api_4.0_spec</artifactId>
       <scope>compile</scope>
     </dependency>
 

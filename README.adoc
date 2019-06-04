@@ -70,7 +70,6 @@ The restful server follows the standard RESTful design style.
 
 == Future
 
-. RequestId Filter
 . Add static analysis
 .. SonarQube
 .. PMD
