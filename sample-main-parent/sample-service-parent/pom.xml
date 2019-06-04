@@ -19,6 +19,7 @@
     <module>sample-service-api</module>
     <module>sample-service-model</module>
     <module>sample-service-restful-server</module>
+    <module>sample-service-common</module>
   </modules>
 
   <properties>

@@ -1,4 +1,4 @@
-package io.github.hcoona.sample.service.server.restful.util;
+package io.github.hcoona.sample.service.util;
 
 import io.github.hcoona.sample.service.server.restful.model.Application;
 import java.util.Optional;

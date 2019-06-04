@@ -20,13 +20,13 @@
     <!-- Internal Project -->
     <dependency>
       <groupId>io.github.hcoona</groupId>
-      <artifactId>sample-service-model</artifactId>
+      <artifactId>sample-service-api</artifactId>
       <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.github.hcoona</groupId>
-      <artifactId>sample-service-api</artifactId>
+      <artifactId>sample-service-common</artifactId>
       <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>

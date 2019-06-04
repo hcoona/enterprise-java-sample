@@ -1,4 +1,4 @@
-package io.github.hcoona.sample.service.server.restful.service;
+package io.github.hcoona.sample.service.service;
 
 import javax.enterprise.context.Dependent;
 

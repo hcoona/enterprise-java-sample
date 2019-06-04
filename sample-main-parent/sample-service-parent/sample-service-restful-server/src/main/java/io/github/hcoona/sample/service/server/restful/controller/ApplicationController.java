@@ -2,7 +2,7 @@ package io.github.hcoona.sample.service.server.restful.controller;
 
 import io.github.hcoona.sample.service.api.ApplicationService;
 import io.github.hcoona.sample.service.server.restful.model.Application;
-import io.github.hcoona.sample.service.server.restful.util.PresentationModelUtils;
+import io.github.hcoona.sample.service.util.PresentationModelUtils;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -40,6 +40,12 @@ public class ApplicationController {
         .collect(Collectors.toList());
   }
 
+  /**
+   * Get the Application by its Id.
+   *
+   * @param applicationId The Application Id
+   * @return The Application
+   */
   @GET
   @Path("{applicationId}")
   public Application get(@PathParam("applicationId") String applicationId) {

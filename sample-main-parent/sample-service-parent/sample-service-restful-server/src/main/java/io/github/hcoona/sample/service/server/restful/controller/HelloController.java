@@ -1,6 +1,6 @@
 package io.github.hcoona.sample.service.server.restful.controller;
 
-import io.github.hcoona.sample.service.server.restful.service.HelloService;
+import io.github.hcoona.sample.service.service.HelloService;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

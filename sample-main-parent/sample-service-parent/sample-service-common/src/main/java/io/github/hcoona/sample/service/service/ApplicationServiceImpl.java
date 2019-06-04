@@ -1,9 +1,9 @@
-package io.github.hcoona.sample.service.server.restful.service;
+package io.github.hcoona.sample.service.service;
 
 import io.github.hcoona.sample.service.api.ApplicationService;
 import io.github.hcoona.sample.service.api.v1.Application;
 import io.github.hcoona.sample.service.repository.ApplicationRepository;
-import io.github.hcoona.sample.service.server.restful.util.ProtoV1Utils;
+import io.github.hcoona.sample.service.util.ProtoV1Utils;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.enterprise.context.Dependent;

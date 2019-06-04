@@ -1,4 +1,4 @@
-package io.github.hcoona.sample.service.server.restful.util;
+package io.github.hcoona.sample.service.util;
 
 import static java.time.ZoneOffset.UTC;
 
