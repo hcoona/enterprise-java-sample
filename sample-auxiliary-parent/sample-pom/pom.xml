@@ -70,6 +70,9 @@
     <!-- JAX-RS Implementation: Jersey -->
     <version.jersey>2.28</version.jersey>
 
+    <!-- Swagger -->
+    <version.swagger>2.0.8</version.swagger>
+
     <!-- CDI Implementation: Weld -->
     <version.weld>3.1.1.Final</version.weld>
     <version.jandex>2.1.1.Final</version.jandex>
@@ -456,6 +459,20 @@
         <groupId>org.eclipse.persistence</groupId>
         <artifactId>org.eclipse.persistence.extension</artifactId>
         <version>${version.eclipselink}</version>
+        <scope>runtime</scope>
+      </dependency>
+
+      <!-- Swagger -->
+      <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-jaxrs2</artifactId>
+        <version>${version.swagger}</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+        <version>${version.swagger}</version>
         <scope>runtime</scope>
       </dependency>
 

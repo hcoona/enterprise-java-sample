@@ -13,6 +13,13 @@
   <name>Sample Service RESTful Server</name>
 
   <dependencies>
+    <!-- Common Utils -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
     <!-- Logging API -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -101,6 +108,18 @@
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-servlet</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- Swagger -->
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-jaxrs2</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
       <scope>runtime</scope>
     </dependency>
   </dependencies>

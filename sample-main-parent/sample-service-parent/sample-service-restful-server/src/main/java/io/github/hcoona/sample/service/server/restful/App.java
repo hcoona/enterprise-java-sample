@@ -1,4 +1,4 @@
-package io.github.hcoona;
+package io.github.hcoona.sample.service.server.restful;
 
 import java.net.URL;
 import java.util.Objects;

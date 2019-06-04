@@ -1,5 +1,6 @@
-package io.github.hcoona;
+package io.github.hcoona.sample.service.server.restful.controller;
 
+import io.github.hcoona.sample.service.server.restful.model.Student;
 import java.util.Arrays;
 import java.util.List;
 import javax.ws.rs.GET;

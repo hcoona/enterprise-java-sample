@@ -1,4 +1,4 @@
-package io.github.hcoona;
+package io.github.hcoona.sample.service.server.restful.model;
 
 public class Student {
   private long id;
