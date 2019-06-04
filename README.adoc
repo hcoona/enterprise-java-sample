@@ -14,9 +14,25 @@ This is a sample project with _best practice_ for enterprise Java developing. It
 
 ==== API
 
+Recommend to follow the link:https://cloud.google.com/apis/design/[Google API Design Guide].
+
+Define wrapper interfaces for services to hide the details about communicating through Grpc or RESTful. Annotate on the interface to identify whether the API is stable, to identify the API is for internal or external.
+
 ==== Grpc Client
 
 ==== RESTful Client
+
+==== JPA model
+
+The `AbstractEntity` is to ensure using auto-incremental `Id` field in database. It would bring better performance.
+
+Create indexes for searchable fields, especially for the "natural id" field.
+
+Assign column length for `String` type fields.
+
+Assign cascading for One-To-Many relationship.
+
+Use link:https://deltaspike.apache.org/[DeltaSpike] to simplify the implementation of Repository pattern.
 
 ==== Grpc-only Server
 
