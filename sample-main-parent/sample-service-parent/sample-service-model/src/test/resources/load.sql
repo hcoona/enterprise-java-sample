@@ -1,0 +1,1 @@
+INSERT INTO APPLICATION (id, applicationId, `user`, queue, name, trackingUrl, startTime, finishTime, applicationType) VALUES (1, 'application_1558682950229_0001', 'hcoona', 'default', 'test_job_1', 'http://127.0.0.1:8060/cluster/app/application_1558682950229_0001', '2019-05-24T15:30:25', '2019-05-24T15:30:43', 'DistributedShell');

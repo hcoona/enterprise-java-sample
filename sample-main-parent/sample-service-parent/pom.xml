@@ -18,5 +18,14 @@
   <modules>
     <module>sample-service-server</module>
     <module>sample-service-api</module>
+    <module>sample-service-model</module>
   </modules>
+
+  <properties>
+    <model-classes><![CDATA[
+      <class>io.github.hcoona.sample.service.model.AbstractEntity</class>
+      <class>io.github.hcoona.sample.service.model.Application</class>
+      <class>io.github.hcoona.sample.service.model.Container</class>
+    ]]></model-classes>
+  </properties>
 </project>
