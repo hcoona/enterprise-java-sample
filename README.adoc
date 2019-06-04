@@ -74,6 +74,5 @@ The restful server follows the standard RESTful design style.
 .. SonarQube
 .. PMD
 .. FindBugs
-. Add CI support
 . Add Liquibase
 . MicroMeter
