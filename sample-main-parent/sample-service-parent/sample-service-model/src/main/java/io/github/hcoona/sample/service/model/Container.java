@@ -10,16 +10,10 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(
     name = "CONTAINER",
-    uniqueConstraints = {
-        @UniqueConstraint(
-            columnNames = Container_.CONTAINER_ID
-        )
-    }
-)
+    uniqueConstraints = {@UniqueConstraint(columnNames = Container_.CONTAINER_ID)})
 public class Container extends AbstractEntity {
 
-  @ManyToOne
-  private Application application;
+  @ManyToOne private Application application;
   private String containerId;
   private long allocationRequestId;
   private long version;

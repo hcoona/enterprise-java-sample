@@ -9,8 +9,7 @@ import org.apache.deltaspike.jpa.api.transaction.Transactional;
 @Transactional
 class TransactionalWorkOfUnit {
 
-  @Inject
-  ApplicationRepository applicationRepository;
+  @Inject ApplicationRepository applicationRepository;
 
   void createApplication(Application application) {
     applicationRepository.save(application);

@@ -17,28 +17,13 @@ import javax.persistence.UniqueConstraint;
 @Table(
     name = "APPLICATION",
     indexes = {
-        @Index(
-            columnList = Application_.USER
-        ),
-        @Index(
-            columnList = Application_.QUEUE
-        ),
-        @Index(
-            columnList = Application_.START_TIME
-        ),
-        @Index(
-            columnList = Application_.FINISH_TIME
-        ),
-        @Index(
-            columnList = Application_.APPLICATION_TYPE
-        ),
+      @Index(columnList = Application_.USER),
+      @Index(columnList = Application_.QUEUE),
+      @Index(columnList = Application_.START_TIME),
+      @Index(columnList = Application_.FINISH_TIME),
+      @Index(columnList = Application_.APPLICATION_TYPE),
     },
-    uniqueConstraints = {
-        @UniqueConstraint(
-            columnNames = Application_.APPLICATION_ID
-        )
-    }
-)
+    uniqueConstraints = {@UniqueConstraint(columnNames = Application_.APPLICATION_ID)})
 public class Application extends AbstractEntity {
 
   @Column(length = 80)

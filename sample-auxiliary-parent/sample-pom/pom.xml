@@ -64,11 +64,15 @@
     <version.h2>1.4.199</version.h2>
     <version.mysql>8.0.16</version.mysql>
 
+    <!-- Servlet Implementation: Jetty -->
+    <version.jetty>9.4.18.v20190429</version.jetty>
+
     <!-- JAX-RS Implementation: Jersey -->
     <version.jersey>2.28</version.jersey>
 
     <!-- CDI Implementation: Weld -->
     <version.weld>3.1.1.Final</version.weld>
+    <version.jandex>2.1.1.Final</version.jandex>
 
     <!-- JPA Implementation: EclipseLink -->
     <version.eclipselink>2.7.4</version.eclipselink>
@@ -100,6 +104,15 @@
         <scope>import</scope>
       </dependency>
 
+      <!-- Servlet Implementation: Jetty -->
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-bom</artifactId>
+        <version>${version.jetty}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <!-- JAX-RS Implementation: Jersey -->
       <dependency>
         <groupId>org.glassfish.jersey</groupId>
@@ -116,6 +129,12 @@
         <version>${version.weld}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss</groupId>
+        <artifactId>jandex</artifactId>
+        <version>${version.jandex}</version>
+        <scope>runtime</scope>
       </dependency>
 
       <!-- Protocol Buffer -->

@@ -16,9 +16,9 @@
   <description>Sample service projects parent</description>
 
   <modules>
-    <module>sample-service-server</module>
     <module>sample-service-api</module>
     <module>sample-service-model</module>
+    <module>sample-service-restful-server</module>
   </modules>
 
   <properties>

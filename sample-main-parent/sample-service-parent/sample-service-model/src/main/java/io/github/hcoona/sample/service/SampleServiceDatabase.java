@@ -16,8 +16,7 @@ import javax.inject.Qualifier;
 @Qualifier
 public @interface SampleServiceDatabase {
 
-  final class Literal
-      extends AnnotationLiteral<SampleServiceDatabase>
+  final class Literal extends AnnotationLiteral<SampleServiceDatabase>
       implements SampleServiceDatabase {
 
     public static final Literal INSTANCE = new Literal();

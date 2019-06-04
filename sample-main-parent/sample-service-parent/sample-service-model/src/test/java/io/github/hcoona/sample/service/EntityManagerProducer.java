@@ -41,8 +41,7 @@ public class EntityManagerProducer {
     return entityManagerFactory.createEntityManager();
   }
 
-  void disposeEntityManager(
-      @Disposes @SampleServiceDatabase EntityManager entityManager) {
+  void disposeEntityManager(@Disposes @SampleServiceDatabase EntityManager entityManager) {
     if (entityManager.isOpen()) {
       entityManager.close();
     }

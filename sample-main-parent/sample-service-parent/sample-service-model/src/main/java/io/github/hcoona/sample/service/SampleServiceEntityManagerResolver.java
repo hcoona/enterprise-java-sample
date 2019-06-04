@@ -9,9 +9,7 @@ import org.apache.deltaspike.jpa.api.entitymanager.EntityManagerResolver;
 @Dependent
 public class SampleServiceEntityManagerResolver implements EntityManagerResolver {
 
-  @Inject
-  @SampleServiceDatabase
-  Provider<EntityManager> entityManagerProvider;
+  @Inject @SampleServiceDatabase Provider<EntityManager> entityManagerProvider;
 
   @Override
   public EntityManager resolveEntityManager() {

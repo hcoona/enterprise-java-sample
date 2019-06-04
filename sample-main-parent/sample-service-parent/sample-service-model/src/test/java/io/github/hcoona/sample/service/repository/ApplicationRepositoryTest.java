@@ -18,33 +18,29 @@ import org.junit.jupiter.api.Test;
 class ApplicationRepositoryTest {
 
   @WeldSetup
-  WeldInitiator weld = WeldInitiator
-      .from(new Weld())
-      .activate(TransactionScoped.class)
-      .build();
+  WeldInitiator weld = WeldInitiator.from(new Weld()).activate(TransactionScoped.class).build();
 
-  @Inject
-  ApplicationRepository applicationRepository;
+  @Inject ApplicationRepository applicationRepository;
 
   @Test
   void testInjection() {
-    assertThat(applicationRepository.toString())
-        .isNotEmpty();
+    assertThat(applicationRepository.toString()).isNotEmpty();
   }
 
   @Test
   void findByApplicationId() {
-    Application expected = new Application()
-        .setApplicationId("application_1558682950229_0001")
-        .setUser("hcoona")
-        .setQueue("default")
-        .setName("test_job_1")
-        .setTrackingUrl("http://127.0.0.1:8060/cluster/app/application_1558682950229_0001")
-        .setStartTime(LocalDateTime.parse("2019-05-24T15:30:25"))
-        .setFinishTime(LocalDateTime.parse("2019-05-24T15:30:43"))
-        .setApplicationType("DistributedShell");
-    Application actual = applicationRepository
-        .findByApplicationId("application_1558682950229_0001");
+    Application expected =
+        new Application()
+            .setApplicationId("application_1558682950229_0001")
+            .setUser("hcoona")
+            .setQueue("default")
+            .setName("test_job_1")
+            .setTrackingUrl("http://127.0.0.1:8060/cluster/app/application_1558682950229_0001")
+            .setStartTime(LocalDateTime.parse("2019-05-24T15:30:25"))
+            .setFinishTime(LocalDateTime.parse("2019-05-24T15:30:43"))
+            .setApplicationType("DistributedShell");
+    Application actual =
+        applicationRepository.findByApplicationId("application_1558682950229_0001");
     assertThat(actual)
         .isEqualToIgnoringGivenFields(expected, "id", "containerMap")
         .matches(app -> app.getId() == 1);

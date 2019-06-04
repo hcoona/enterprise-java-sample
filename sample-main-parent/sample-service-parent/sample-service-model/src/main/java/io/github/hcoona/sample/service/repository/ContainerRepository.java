@@ -10,8 +10,7 @@ import org.apache.deltaspike.jpa.api.entitymanager.EntityManagerConfig;
 @Repository
 @EntityManagerConfig(
     entityManagerResolver = SampleServiceEntityManagerResolver.class,
-    qualifier = SampleServiceDatabase.class
-)
+    qualifier = SampleServiceDatabase.class)
 public interface ContainerRepository extends EntityRepository<Container, Long> {
 
   Container findByContainerId(String containerId);

@@ -15,29 +15,24 @@ import org.junit.jupiter.api.Test;
 @EnableWeld
 class ModificationTest {
 
-  @WeldSetup
-  WeldInitiator weld = WeldInitiator
-      .from(new Weld())
-      .build();
+  @WeldSetup WeldInitiator weld = WeldInitiator.from(new Weld()).build();
 
-  @Inject
-  Provider<TransactionalWorkOfUnit> unitProvider;
+  @Inject Provider<TransactionalWorkOfUnit> unitProvider;
 
   @Test
   void testSaveApplication() {
-    Application application = new Application()
-        .setApplicationId("application_1559116214688_0001")
-        .setUser("hcoona")
-        .setQueue("default")
-        .setName("test_job_1_new")
-        .setTrackingUrl("http://127.0.0.1:8060/cluster/app/application_1559116214688_0001")
-        .setStartTime(LocalDateTime.parse("2019-05-29T16:16:34"))
-        .setFinishTime(LocalDateTime.parse("2019-05-29T16:17:09"))
-        .setApplicationType("DistributedShell");
-    assertThat(application)
-        .matches(app -> app.getId() == 0);
+    Application application =
+        new Application()
+            .setApplicationId("application_1559116214688_0001")
+            .setUser("hcoona")
+            .setQueue("default")
+            .setName("test_job_1_new")
+            .setTrackingUrl("http://127.0.0.1:8060/cluster/app/application_1559116214688_0001")
+            .setStartTime(LocalDateTime.parse("2019-05-29T16:16:34"))
+            .setFinishTime(LocalDateTime.parse("2019-05-29T16:17:09"))
+            .setApplicationType("DistributedShell");
+    assertThat(application).matches(app -> app.getId() == 0);
     unitProvider.get().createApplication(application);
-    assertThat(application)
-        .matches(app -> app.getId() != 0);
+    assertThat(application).matches(app -> app.getId() != 0);
   }
 }
