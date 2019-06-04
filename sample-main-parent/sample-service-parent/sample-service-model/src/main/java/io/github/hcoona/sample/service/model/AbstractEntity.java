@@ -8,6 +8,7 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class AbstractEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(updatable = false, nullable = false)

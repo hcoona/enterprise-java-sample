@@ -1,22 +1,23 @@
 package io.github.hcoona.sample.service.model;
 
+import java.util.Objects;
+import java.util.StringJoiner;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import java.util.Objects;
-import java.util.StringJoiner;
 
 @Entity
 @Table(
-  name = "CONTAINER",
-  uniqueConstraints = {
-    @UniqueConstraint(
-      columnNames = Container_.CONTAINER_ID
-    )
-  }
+    name = "CONTAINER",
+    uniqueConstraints = {
+        @UniqueConstraint(
+            columnNames = Container_.CONTAINER_ID
+        )
+    }
 )
 public class Container extends AbstractEntity {
+
   @ManyToOne
   private Application application;
   private String containerId;
@@ -27,6 +28,12 @@ public class Container extends AbstractEntity {
     return application;
   }
 
+  /**
+   * Associate the container with an application.
+   *
+   * @param application The Application
+   * @return The container itself
+   */
   public Container setApplication(Application application) {
     if (this.application != null) {
       this.application.getContainerMap().remove(this.getContainerId());
@@ -86,9 +93,9 @@ public class Container extends AbstractEntity {
   @Override
   public String toString() {
     return new StringJoiner(", ", Container.class.getSimpleName() + "[", "]")
-      .add("containerId='" + containerId + "'")
-      .add("allocationRequestId=" + allocationRequestId)
-      .add("version=" + version)
-      .toString();
+        .add("containerId='" + containerId + "'")
+        .add("allocationRequestId=" + allocationRequestId)
+        .add("version=" + version)
+        .toString();
   }
 }

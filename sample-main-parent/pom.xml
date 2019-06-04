@@ -61,12 +61,19 @@
             </dependency>
           </dependencies>
           <configuration>
+            <sourceDirectories>
+              <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+            </sourceDirectories>
+            <testSourceDirectories>
+              <testSourceDirectory>${project.build.testSourceDirectory}</testSourceDirectory>
+            </testSourceDirectories>
             <configLocation>checkstyle/checkstyle.xml</configLocation>
             <suppressionsLocation>checkstyle/suppressions.xml</suppressionsLocation>
             <includeTestSourceDirectory>true</includeTestSourceDirectory>
             <consoleOutput>true</consoleOutput>
             <encoding>UTF-8</encoding>
             <failOnViolation>true</failOnViolation>
+            <violationSeverity>warning</violationSeverity>
           </configuration>
         </plugin>
       </plugins>

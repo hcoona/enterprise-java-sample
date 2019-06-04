@@ -1,5 +1,9 @@
 package io.github.hcoona.sample.service.model;
 
+import java.time.LocalDateTime;
+import java.util.Map;
+import java.util.Objects;
+import java.util.StringJoiner;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,38 +12,35 @@ import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Objects;
-import java.util.StringJoiner;
 
 @Entity
 @Table(
-  name = "APPLICATION",
-  indexes = {
-    @Index(
-      columnList = Application_.USER
-    ),
-    @Index(
-      columnList = Application_.QUEUE
-    ),
-    @Index(
-      columnList = Application_.START_TIME
-    ),
-    @Index(
-      columnList = Application_.FINISH_TIME
-    ),
-    @Index(
-      columnList = Application_.APPLICATION_TYPE
-    ),
-  },
-  uniqueConstraints = {
-    @UniqueConstraint(
-      columnNames = Application_.APPLICATION_ID
-    )
-  }
+    name = "APPLICATION",
+    indexes = {
+        @Index(
+            columnList = Application_.USER
+        ),
+        @Index(
+            columnList = Application_.QUEUE
+        ),
+        @Index(
+            columnList = Application_.START_TIME
+        ),
+        @Index(
+            columnList = Application_.FINISH_TIME
+        ),
+        @Index(
+            columnList = Application_.APPLICATION_TYPE
+        ),
+    },
+    uniqueConstraints = {
+        @UniqueConstraint(
+            columnNames = Application_.APPLICATION_ID
+        )
+    }
 )
 public class Application extends AbstractEntity {
+
   @Column(length = 80)
   private String applicationId;
 
@@ -166,14 +167,14 @@ public class Application extends AbstractEntity {
   @Override
   public String toString() {
     return new StringJoiner(", ", Application.class.getSimpleName() + "[", "]")
-      .add("applicationId='" + applicationId + "'")
-      .add("user='" + user + "'")
-      .add("queue='" + queue + "'")
-      .add("name='" + name + "'")
-      .add("trackingUrl='" + trackingUrl + "'")
-      .add("startTime=" + startTime)
-      .add("finishTime=" + finishTime)
-      .add("applicationType='" + applicationType + "'")
-      .toString();
+        .add("applicationId='" + applicationId + "'")
+        .add("user='" + user + "'")
+        .add("queue='" + queue + "'")
+        .add("name='" + name + "'")
+        .add("trackingUrl='" + trackingUrl + "'")
+        .add("startTime=" + startTime)
+        .add("finishTime=" + finishTime)
+        .add("applicationType='" + applicationType + "'")
+        .toString();
   }
 }
