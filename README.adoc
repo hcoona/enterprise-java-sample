@@ -34,9 +34,23 @@ Assign cascading for One-To-Many relationship.
 
 Use link:https://deltaspike.apache.org/[DeltaSpike] to simplify the implementation of Repository pattern.
 
+==== Common
+
+The common project is separate because we want to build several server apps with the same business logics. It's usually merged into the server app.
+
+===== Presentation Layer Model
+
+The presentation layer model directly matches the JSON entities accept from or return to user through RESTful API.
+
+===== ServiceImpl
+
+It implements the API, contains the real business logics.
+
 ==== Grpc-only Server
 
 ==== RESTful-only Server
+
+The restful server follows the standard RESTful design style.
 
 ==== Mixed Server
 
@@ -56,6 +70,7 @@ Use link:https://deltaspike.apache.org/[DeltaSpike] to simplify the implementati
 
 == Future
 
+. RequestId Filter
 . Add static analysis
 .. SonarQube
 .. PMD
