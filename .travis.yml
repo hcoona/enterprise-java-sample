@@ -2,3 +2,15 @@ language: java
 jdk:
   - oraclejdk8
   - openjdk8
+
+cache:
+  directories:
+    - $HOME/.m2
+
+install:
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -Dassembly.skipAssembly=true -T 1.5C -B -V
+
+script:
+  - ./mvnw checkstyle:check -B
+  - ./mvnw test -B
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -T 1.5C -B -V
