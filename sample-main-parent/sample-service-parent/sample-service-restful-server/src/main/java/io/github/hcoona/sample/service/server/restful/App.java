@@ -3,6 +3,7 @@ package io.github.hcoona.sample.service.server.restful;
 import java.io.File;
 import java.net.URL;
 import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.plus.webapp.EnvConfiguration;
 import org.eclipse.jetty.plus.webapp.PlusConfiguration;
@@ -37,7 +38,11 @@ public final class App {
     final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     final File webAppResourceFile =
         new File(App.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-    final URL webXmlUrl = Objects.requireNonNull(classLoader.getResource("WEB-INF/web.xml"));
+    final URL webInfUrl = Objects.requireNonNull(classLoader.getResource("WEB-INF/"));
+    String contentRootUrlString = StringUtils.substringBeforeLast(
+        StringUtils.stripEnd(webInfUrl.toExternalForm(), "/"),
+        "/") + "/";
+    final URL contentRootUrl = new URL(contentRootUrlString);
 
     WebAppContext webapp = new WebAppContext();
     webapp.setConfigurations(
@@ -53,8 +58,7 @@ public final class App {
         });
     webapp.setContextPath("/");
     webapp.setClassLoader(classLoader);
-    webapp.setResourceBase(webAppResourceFile.getPath());
-    webapp.setDescriptor(webXmlUrl.toExternalForm());
+    webapp.setBaseResource(Resource.newResource(contentRootUrl));
     webapp.getMetaData().addContainerResource(Resource.newResource(webAppResourceFile));
 
     Server server = new Server(8080);
