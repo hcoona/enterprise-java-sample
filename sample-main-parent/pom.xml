@@ -20,7 +20,7 @@
   </modules>
 
   <properties>
-    <version.checkstyle>8.21</version.checkstyle>
+    <version.checkstyle>8.29</version.checkstyle>
     <version.checkstyle.sevntu>1.33.0</version.checkstyle.sevntu>
   </properties>
 
