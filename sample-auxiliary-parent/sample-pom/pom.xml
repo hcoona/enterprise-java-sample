@@ -46,7 +46,7 @@
 
     <!-- Configuration -->
     <version.cfg4j>4.4.1</version.cfg4j>
-    <version.commons.configuration2>2.5</version.commons.configuration2>
+    <version.commons.configuration2>2.7</version.commons.configuration2>
 
     <!-- Metrics API: Micrometer -->
     <version.micrometer>1.1.4</version.micrometer>
