@@ -40,7 +40,7 @@
     <!-- Common Utils -->
     <version.guava>27.0.1-jre</version.guava>
     <version.commons.lang3>3.9</version.commons.lang3>
-    <version.commons.io>2.6</version.commons.io>
+    <version.commons.io>2.7</version.commons.io>
     <version.commons.beanutils>1.9.3</version.commons.beanutils>
     <version.commons.collections>3.2.2</version.commons.collections>
 
